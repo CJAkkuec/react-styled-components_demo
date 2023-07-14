@@ -1,21 +1,24 @@
 import { createGlobalStyle } from "styled-components";
+import { Open_Sans } from "next/font/google";
 
-export default createGlobalStyle`
-  *, 
-  *::before,
-  *::after {
+const openSans = Open_Sans({ subsets: ["latin"] });
+
+const GlobalStyles = createGlobalStyle`
+:root {
+    --primary: green;
+    --secondary: purple;
+}
+
+*,
+*::before,
+*::after {
     box-sizing: border-box;
-  }
+}
 
-  :root {
-    --primary-color: #22babb; 
-    --secondary-color: #f24405;
-    --primary-background: #d3d3d3;
-  }
+body {
 
-  body {
-    margin: 0;
-    font-family: system-ui;
-    padding: 2rem;
-  }
+    font-family: ${openSans.style.fontFamily}
+}
 `;
+
+export default GlobalStyles;
